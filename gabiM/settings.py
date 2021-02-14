@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o@^mhsc_+#k(qfu%s(tt3@9jz!rl8&%4ua79)()wp!r8wbzc@x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1:', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -156,3 +156,8 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
     }
 }
+
+try:
+    from .local_settings import *
+except ImportError:
+    print('You must be on production...')
